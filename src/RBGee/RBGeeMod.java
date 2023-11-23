@@ -2,6 +2,7 @@ package RBGee;
 
 import RBGee.content.RGBeeBlocks;
 import RBGee.content.RGBeeItems;
+import RBGee.content.RGBeeLiquids;
 import arc.*;
 import arc.util.*;
 import mindustry.game.EventType.*;
@@ -30,6 +31,7 @@ public class RBGeeMod extends Mod{
     @Override
     public void loadContent(){
         RGBeeItems.load();
+        RGBeeLiquids.load();
         RGBeeBlocks.load();
         Log.info("Loading some RBGeeMod content.");
     }
