@@ -1,14 +1,13 @@
-package RBGee.content;
+package RBGee.contents;
 
-import arc.audio.Sound;
 import mindustry.content.Items;
 import mindustry.gen.Sounds;
 import mindustry.type.Category;
-import mindustry.type.Item;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.TreeBlock;
 import mindustry.world.blocks.production.AttributeCrafter;
+import mindustry.world.blocks.units.UnitFactory;
 
 import static mindustry.type.ItemStack.with;
 
@@ -16,9 +15,12 @@ public class RGBeeBlocks {
     public static Block
             //crafting
             honeyBlender,
-            //production
             //tree?
             tree,
+            //production
+
+            //units
+            elementaryArtificialBeehive,
             //defense
             waxWall, waxWallLarge;
     public static void load() {
@@ -41,14 +43,31 @@ public class RGBeeBlocks {
             consumePower(0.8f);
         }};
 
-        //end region
+        //endregion
         //region tree?
 
         tree = new TreeBlock("tree?") ;
 
-        //end region
+        //endregion
         //region production
+
+        //
+
         //end region
+        //region units
+
+        elementaryArtificialBeehive = new UnitFactory("elementary-artificial-beehive") {{
+            requirements(Category.units, with(Items.copper, 70, Items.lead, 70, RGBeeItems.stickySteel, 30));
+            /* TODO
+            plans = Seq.with(
+                    new UnitPlan(UnitType.)
+            );
+            */
+            size = 3;
+            consumePower(1.3f);
+        }};
+
+        //endregion
         //region defense
 
         int wallHealthMultiplier = 4;
@@ -63,5 +82,7 @@ public class RGBeeBlocks {
            health = 90 * 4 * wallHealthMultiplier;
            insulated = true;
         }};
+
+        //endregion
     }
 }

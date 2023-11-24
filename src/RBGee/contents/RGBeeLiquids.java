@@ -1,7 +1,6 @@
-package RBGee.content;
+package RBGee.contents;
 
 import arc.graphics.Color;
-import mindustry.content.Liquids;
 import mindustry.type.Liquid;
 
 public class RGBeeLiquids {

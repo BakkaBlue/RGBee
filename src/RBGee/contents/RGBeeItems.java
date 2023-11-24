@@ -1,4 +1,4 @@
-package RBGee.content;
+package RBGee.contents;
 
 import arc.graphics.*;
 import arc.struct.*;
