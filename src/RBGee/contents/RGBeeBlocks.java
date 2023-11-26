@@ -1,5 +1,7 @@
 package RBGee.contents;
 
+import RBGee.world.blocks.defense.stickyWall;
+import arc.struct.Seq;
 import mindustry.content.Items;
 import mindustry.gen.Sounds;
 import mindustry.type.Category;
@@ -8,11 +10,14 @@ import mindustry.world.Block;
 import mindustry.world.blocks.environment.TreeBlock;
 import mindustry.world.blocks.production.AttributeCrafter;
 import mindustry.world.blocks.units.UnitFactory;
+import mindustry.world.meta.Env;
 
 import static mindustry.type.ItemStack.with;
 
 public class RGBeeBlocks {
     public static Block
+            //distribution
+            //TODO a conveyor to be made
             //crafting
             honeyBlender,
             //tree?
@@ -22,8 +27,13 @@ public class RGBeeBlocks {
             //units
             elementaryArtificialBeehive,
             //defense
-            waxWall, waxWallLarge;
+            waxWall, waxWallLarge, stickySteelWall, stickySteelWallLarge;
     public static void load() {
+        //region distribution
+
+        //TODO a conveyor to be made
+
+        //endregion
         //region crafting
 
         honeyBlender = new AttributeCrafter("honey-blender") {{
@@ -58,11 +68,10 @@ public class RGBeeBlocks {
 
         elementaryArtificialBeehive = new UnitFactory("elementary-artificial-beehive") {{
             requirements(Category.units, with(Items.copper, 70, Items.lead, 70, RGBeeItems.stickySteel, 30));
-            /* TODO
             plans = Seq.with(
-                    new UnitPlan(UnitType.)
+                    new UnitPlan(RGBeeUnitTypes.mechWorkerBee, 60f * 35, with(RGBeeItems.stickySteel, 15, Items.silicon, 30)),
+                    new UnitPlan(RGBeeUnitTypes.mechDrone, 60f * 10, with(RGBeeItems.stickySteel, 15))
             );
-            */
             size = 3;
             consumePower(1.3f);
         }};
@@ -70,7 +79,7 @@ public class RGBeeBlocks {
         //endregion
         //region defense
 
-        int wallHealthMultiplier = 4;
+        int wallHealthMultiplier = 6;
 
         waxWall = new Block("wax-wall") {{
             requirements(Category.defense, with(RGBeeItems.beesWax, 6));
@@ -81,6 +90,19 @@ public class RGBeeBlocks {
            requirements(Category.defense, ItemStack.mult(waxWall.requirements, 4));
            health = 90 * 4 * wallHealthMultiplier;
            insulated = true;
+        }};
+        stickySteelWall = new stickyWall("sticky-steel-wall") {{
+           requirements(Category.defense, with(RGBeeItems.stickySteel, 6));
+           health = 160 * wallHealthMultiplier;
+           lightningChance = 0.1f;
+           envDisabled |= Env.scorching;
+        }};
+        stickySteelWallLarge = new stickyWall("sticky-steel-wall-lage") {{
+           requirements(Category.defense, ItemStack.mult(stickySteelWall.requirements, 4));
+           health = 160 * 4 *wallHealthMultiplier;
+           size = 2;
+           lightningChance = 0.1f;
+           envDisabled |= Env.scorching;
         }};
 
         //endregion
