@@ -1,4 +1,4 @@
-package RBGee.contents;
+package RGBee.contents;
 
 import arc.graphics.*;
 import arc.struct.*;

@@ -1,4 +1,4 @@
-package RBGee.world.blocks.defense;
+package RGBee.world.blocks.defense;
 
 import mindustry.entities.TargetPriority;
 import mindustry.world.blocks.defense.Wall;

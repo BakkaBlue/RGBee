@@ -1,4 +1,4 @@
-package RBGee.contents;
+package RGBee.contents;
 
 import arc.graphics.Color;
 import mindustry.type.Liquid;

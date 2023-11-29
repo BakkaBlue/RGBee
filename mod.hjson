@@ -1,23 +1,8 @@
-#the mod name as displayed in-game
 displayName: "RGBee"
-
-#the internal name of your mod
 name: "RGBee"
-
-#your name
 author: "Cyan"
-
-#the fully qualified main class of the mod
 main: "RGBee.RGBeeMod"
-
-#the mod description as seen in the mod dialog
 description: "bee"
-
-#the mod version
 version: 1.0
-
-#the minimum game build required to run this mod
 minGameVersion: 145
-
-#this is a java mod
 java: true

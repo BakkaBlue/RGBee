@@ -1,6 +1,6 @@
-package RBGee.contents;
+package RGBee.contents;
 
-import RBGee.world.blocks.defense.stickyWall;
+import RGBee.world.blocks.defense.stickyWall;
 import arc.struct.Seq;
 import mindustry.content.Items;
 import mindustry.gen.Sounds;

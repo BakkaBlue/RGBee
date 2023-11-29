@@ -1,27 +1,33 @@
-package RBGee.contents;
+package RGBee.contents;
 
 import mindustry.ai.UnitCommand;
+import mindustry.ai.types.MinerAI;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
 import mindustry.entities.bullet.BombBulletType;
+import mindustry.gen.EntityMapping;
+import mindustry.gen.UnitEntity;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.ammo.PowerAmmoType;
 import mindustry.world.meta.BlockFlag;
 
-/**
- * maybe I'll write this later(?)
- */
+import static RGBee.RGBeeMod.name;
+import static mindustry.content.Blocks.constructor;
+
 public class RGBeeUnitTypes {
 
-    public static UnitType
-            mechWorkerBee, mechDrone /* mech */;
+    static {
+        EntityMapping.nameMap.put(name("mechWorkerBee"), EntityMapping.idMap[36]);
+        EntityMapping.nameMap.put(name("mechDrone"), EntityMapping.idMap[36]);
+    }
 
+    public static UnitType
+            mechWorkerBee, mechDrone;
     public static void load() {
         mechWorkerBee = new UnitType("mechWorkerBee") {{
-            /* todo maybe i need to invent a new kind of minerAI(?
-            controller = u -> new;
-            */
+            /* todo maybe i need to invent a new kind of minerAI(?            */
+            controller = u -> new MinerAI();
             defaultCommand = UnitCommand.mineCommand;
 
             flying = true;
