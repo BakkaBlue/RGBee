@@ -89,6 +89,7 @@ public class RGBeeBlocks {
         waxWallLarge = new Block("wax-wall-large") {{
            requirements(Category.defense, ItemStack.mult(waxWall.requirements, 4));
            health = 90 * 4 * wallHealthMultiplier;
+           size = 2;
            insulated = true;
         }};
         stickySteelWall = new stickyWall("sticky-steel-wall") {{

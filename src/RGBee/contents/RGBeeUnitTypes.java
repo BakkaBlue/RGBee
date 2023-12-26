@@ -13,22 +13,23 @@ import mindustry.type.ammo.PowerAmmoType;
 import mindustry.world.meta.BlockFlag;
 
 import static RGBee.RGBeeMod.name;
-import static mindustry.content.Blocks.constructor;
 
-public class RGBeeUnitTypes {
+
+public final class RGBeeUnitTypes {
 
     static {
         EntityMapping.nameMap.put(name("mechWorkerBee"), EntityMapping.idMap[36]);
-        EntityMapping.nameMap.put(name("mechDrone"), EntityMapping.idMap[36]);
+        EntityMapping.nameMap.put(name("mechDrone"), EntityMapping.idMap[4]);
     }
 
     public static UnitType
             mechWorkerBee, mechDrone;
     public static void load() {
         mechWorkerBee = new UnitType("mechWorkerBee") {{
-            /* todo maybe i need to invent a new kind of minerAI(?            */
+            /* todo maybe i need to invent a new kind of minerAI(?*/
             controller = u -> new MinerAI();
             defaultCommand = UnitCommand.mineCommand;
+            constructor = UnitEntity::create;
 
             flying = true;
             drag = 0.06f;
@@ -56,6 +57,7 @@ public class RGBeeUnitTypes {
             targetFlags = new BlockFlag[]{BlockFlag.generator, null};
             hitSize = 9;
             itemCapacity = 10;
+            constructor = UnitEntity::create;
 
             weapons.add(new Weapon() {{
                 y = 0f;

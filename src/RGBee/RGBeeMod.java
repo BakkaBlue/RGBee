@@ -1,9 +1,6 @@
 package RGBee;
 
-import RGBee.contents.RGBeeBlocks;
-import RGBee.contents.RGBeeItems;
-import RGBee.contents.RGBeeLiquids;
-import RGBee.contents.RGBeeUnitTypes;
+import RGBee.contents.*;
 import arc.*;
 import arc.util.*;
 import mindustry.game.EventType.*;
@@ -40,6 +37,7 @@ public class RGBeeMod extends Mod{
         RGBeeLiquids.load();
         RGBeeUnitTypes.load();
         RGBeeBlocks.load();
+        BeePlanet.load();
         Log.info("Loading some RGBeeMod content.");
     }
 
